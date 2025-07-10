@@ -103,21 +103,18 @@ if st.button("📈 수요 예측 실행"):
 
 
     import matplotlib.pyplot as plt
-    import matplotlib.font_manager as fm
 
-    # ✅ 한글 폰트 설정
-    plt.rcParams['font.family'] = 'NanumGothic'
-    plt.rcParams['axes.unicode_minus'] = False
-
+    # Chart title and axis labels in English
     fig, ax = plt.subplots(figsize=(6, 4))
-    items = ['예상 수요 (명)', '예상 수익 (천원)']
-    values = [pred, profit / 1000]
+    items = ['Predicted Demand', 'Estimated Profit (K won)']
+    values = [pred, profit / 1000]  # 천원 단위로 변환
 
     bars = ax.bar(items, values, color=['green', 'blue'])
-    ax.set_title("📊 예측 결과 차트")
+    ax.set_title("📊 Prediction Results")
     ax.bar_label(bars, fmt='%.1f', padding=3)
 
     st.pyplot(fig)
+
 
 
         
