@@ -101,20 +101,38 @@ if st.button("📈 수요 예측 실행"):
     st.write(f"✅ 예상 수익: **{int(profit):,}원**")
     st.write(f"💡 인근 시세보다 **{'저렴함' if price < competition_price else '비쌈'}**")
 
-
     import matplotlib.pyplot as plt
+    import matplotlib.ticker as ticker
+    import seaborn as sns
 
-    # Chart title and axis labels in English
-    fig, ax = plt.subplots(figsize=(6, 4))
+    # 스타일 테마 적용
+    plt.style.use('seaborn-whitegrid')
+    sns.set_palette("Set2")  # 예쁜 색상 세트
+
+    # 차트 데이터
     items = ['Predicted Demand', 'Estimated Profit (K won)']
-    values = [pred, profit / 1000]  # 천원 단위로 변환
+    values = [pred, profit / 1000]
 
-    bars = ax.bar(items, values, color=['green', 'blue'])
-    ax.set_title("📊 Prediction Results")
-    ax.bar_label(bars, fmt='%.1f', padding=3)
+    # 차트 생성
+    fig, ax = plt.subplots(figsize=(7, 5))
+    bars = ax.bar(items, values)
+
+    # 배경/테두리 스타일링
+    ax.set_facecolor("white")
+    fig.patch.set_facecolor('white')
+    ax.set_title("📊 Prediction Results", fontsize=18, weight='bold')
+    ax.tick_params(axis='both', labelsize=12)
+
+    # 축 값 천단위 포맷
+    formatter = ticker.FuncFormatter(lambda x, pos: f'{int(x):,}')
+    ax.yaxis.set_major_formatter(formatter)
+
+    # 바 라벨 추가
+    for bar in bars:
+        yval = bar.get_height()
+        ax.text(bar.get_x() + bar.get_width()/2.0, yval + max(values)*0.02,
+                f'{yval:,.1f}', ha='center', va='bottom', fontsize=12, weight='bold')
 
     st.pyplot(fig)
-
-
 
         
