@@ -31,7 +31,7 @@ model = train_model()
 # ---------------------
 # Streamlit UI
 # ---------------------
-st.title("⛳️ 골프장 그린피 수요 예측기 (XGBoost 기반)")
+st.title("⛳️ 동촌CC 그린피 수요 예측기")
 
 price = st.slider("그린피 (원)", 80000, 300000, 140000, step=1000)
 is_weekend = st.selectbox("주말 여부", ['주중(0)', '주말(1)']) == '주말(1)'
