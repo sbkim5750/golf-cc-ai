@@ -106,7 +106,7 @@ if st.button("📈 수요 예측 실행"):
     import seaborn as sns
 
     # 스타일 테마 적용
-    plt.style.use('seaborn-whitegrid')
+    plt.style.use('ggplot')  # 또는 'default'
     sns.set_palette("Set2")  # 예쁜 색상 세트
 
     # 차트 데이터
