@@ -101,16 +101,16 @@ if st.button("📈 수요 예측 실행"):
     st.write(f"✅ 예상 수익: **{int(profit):,}원**")
     st.write(f"💡 인근 시세보다 **{'저렴함' if price < competition_price else '비쌈'}**")
 
-   import matplotlib.pyplot as plt
+        import matplotlib.pyplot as plt
 
-fig, ax = plt.subplots(figsize=(6, 4))
+    fig, ax = plt.subplots(figsize=(6, 4))
 
-# 천 단위로 단위 변환
-items = ['예상 수요 (명)', '예상 수익 (천원)']
-values = [pred, profit / 1000]
+    # 천 단위로 단위 변환
+    items = ['예상 수요 (명)', '예상 수익 (천원)']
+    values = [pred, profit / 1000]
 
-bars = ax.bar(items, values, color=['green', 'blue'])
-ax.set_title("📊 예측 결과 차트")
-ax.bar_label(bars, fmt='%.1f', padding=3)
+    bars = ax.bar(items, values, color=['green', 'blue'])
+    ax.set_title("📊 예측 결과 차트")
+    ax.bar_label(bars, fmt='%.1f', padding=3)
 
-st.pyplot(fig)
+    st.pyplot(fig)
