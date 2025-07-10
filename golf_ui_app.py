@@ -106,7 +106,7 @@ if st.button("📈 수요 예측 실행"):
     import matplotlib.font_manager as fm
 
     # ✅ 한글 폰트 설정
-    plt.rcParams['font.family'] = 'Malgun Gothic'
+    plt.rcParams['font.family'] = 'NanumGothic'
     plt.rcParams['axes.unicode_minus'] = False
 
     fig, ax = plt.subplots(figsize=(6, 4))
