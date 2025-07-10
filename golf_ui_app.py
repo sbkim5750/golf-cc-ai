@@ -40,4 +40,4 @@ model = train_model()
 st.title("⛳️ 동촌CC 그린피 수요 예측기 (여주·이천 인근)")
 
 price = st.slider("💰 동촌CC 그린피 (원)", 80000, 300000, 140000, step=1000)
-competition_price = st.slider(_
+competition_price = st.slider("🏌️ 인근 골프장 평균 그린피 (원)", 80000, 300000, 150000, step=1000)
